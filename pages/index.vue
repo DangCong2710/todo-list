@@ -62,13 +62,6 @@ import { mapActions, mapState } from 'vuex'
         if (!timestamp) return null
         return new Date(timestamp * 1000)
       },
-      checkDate(date) {
-        const checkDate = new Date(date)
-        return checkDate
-      },
-      get_day_of_time(d1, d2) {
-        return Math.ceil((d1 -  d2) / (24*60*60*1000));
-      },
     }
   }
 </script>

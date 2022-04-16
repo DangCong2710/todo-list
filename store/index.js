@@ -46,7 +46,7 @@ export const actions = {
         content: payload.content,
         deadline: payload.deadline
       })
-      this.$router.go(this.$router.currentRoute)
+      this.$router.go({path:'task' + '/detail?id=' + docRef.id})
     } catch (error) {
       console.log(error)
     }
