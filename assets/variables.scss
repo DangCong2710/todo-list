@@ -1,0 +1,23 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$title-font: 'Bebas Neue', cursive;
+$font-family: 'Montserrat';
+$text-field-padding: 4px 0 4px 0 !default;
+$text-field-filled-full-width-outlined-slot-min-height: 52px !default;
+$card-subtitle-padding: 0 !default;
+$material-dark: (
+  'text-fields': (
+    'outlined': #fff,
+  ),
+);
+
+.v-application {
+  font-family: Montserrat, sans-serif !important;
+    .title { // To pin point specific classes of some components
+      font-family: $title-font !important;
+    }
+}
