@@ -4,7 +4,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   target: 'static',
   head: {
-    titleTemplate: '%s - to-do-list',
+    titleTemplate: '%s',
     title: 'to-do-list',
     htmlAttrs: {
       lang: 'en',
