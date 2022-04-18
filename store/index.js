@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+  /* eslint-disable no-console */
 import { collection, getDocs, addDoc, deleteDoc, doc , updateDoc } from 'firebase/firestore'
 import { db } from '~/plugins/firebaseConfig';
 
@@ -24,7 +24,7 @@ export const actions = {
       console.log(error);
     }
   },
-  async setTask ({commit},payload) {
+  async setTask ({commit, $router},payload) {
     const date = new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)
     try {
       const taskDocRef = await addDoc(dbTask, {
@@ -33,12 +33,12 @@ export const actions = {
         deadline: payload.deadline,
         createdAt: date, 
       });
-      this.$router.push({path:'task' + '/detail?id=' + taskDocRef.id})
+      $router.push('/task/detail?id=' + taskDocRef.id)
     } catch (error) {
       console.log(error)
     }
   },
-  async updateTask ({commit},payload) {
+  async updateTask ({commit, dispatch, $router},payload) {
     const docRef = doc(db, "taskTodo", payload.id);
     try {
       await updateDoc(docRef, {
@@ -46,7 +46,9 @@ export const actions = {
         content: payload.content,
         deadline: payload.deadline
       })
-      this.$router.go({path:'task' + '/detail?id=' + docRef.id})
+      console.log(payload.id)
+      dispatch('getTasks')
+      commit("UPDATE_CHANGE_ON_ENVENT")
     } catch (error) {
       console.log(error)
     }
@@ -72,5 +74,8 @@ export const mutations = {
   },
   HANDLE_CLICK_EDIT_TASK (state, payload) {
     state.onEvent = payload;
+  },
+  UPDATE_CHANGE_ON_ENVENT(state){
+    state.onEvent = false
   }
 }
