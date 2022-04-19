@@ -4,6 +4,7 @@
       <hr class="hr-line" @click="$emit('toggle', false)">
       <v-text-field
         v-model="taskName"
+        autofocus
         dark
         label="Title"
         class="white--text"
@@ -12,6 +13,7 @@
       />
       <v-textarea
         v-model="content"
+        autofocus
         dark
         outlined
         name="input-20"
@@ -179,9 +181,20 @@ import { mapActions } from 'vuex'
   color: white ;
   border-radius: 12px;
   border-width: 2px !important;
+
+  &focus{
+    position: fixed !important;
+    top:50px !important;
+  }
 }
+
+
 
 .v-application .transparent {  
   border-color: black !important;
+}
+
+@media (max-width:550px) { 
+    body.when-keyboard-showing .header { height:0; padding:0; }
 }
 </style>

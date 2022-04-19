@@ -4,6 +4,7 @@
       <hr class="hr-line" @click="onEditTask">
       <v-text-field
         v-model="taskData.name"
+        autofocus
         dark
         label="Title"
         class="white--text"
@@ -11,6 +12,7 @@
       />
       <v-textarea
         v-model="taskData.content"
+        autofocus
         dark
         outlined
         name="input-20"

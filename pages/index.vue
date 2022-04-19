@@ -145,4 +145,5 @@ import { mapActions, mapState } from 'vuex'
   }
 }
 
+
 </style>

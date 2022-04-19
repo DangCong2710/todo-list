@@ -24,7 +24,7 @@ export const actions = {
       console.log(error);
     }
   },
-  async setTask ({commit, $router},payload) {
+  async setTask ({commit},payload) {
     const date = new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)
     try {
       const taskDocRef = await addDoc(dbTask, {
@@ -33,7 +33,7 @@ export const actions = {
         deadline: payload.deadline,
         createdAt: date, 
       });
-      $router.push('/task/detail?id=' + taskDocRef.id)
+      this.$router.push({path: `/task/detail?id=${taskDocRef.id}`})
     } catch (error) {
       console.log(error)
     }
@@ -46,7 +46,6 @@ export const actions = {
         content: payload.content,
         deadline: payload.deadline
       })
-      console.log(payload.id)
       dispatch('getTasks')
       commit("UPDATE_CHANGE_ON_ENVENT")
     } catch (error) {
