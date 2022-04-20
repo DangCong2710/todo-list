@@ -188,13 +188,8 @@ import { mapActions } from 'vuex'
   }
 }
 
-
-
 .v-application .transparent {  
   border-color: black !important;
 }
 
-@media (max-width:550px) { 
-    body.when-keyboard-showing .header { height:0; padding:0; }
-}
 </style>
